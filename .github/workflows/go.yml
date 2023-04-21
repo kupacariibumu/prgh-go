@@ -23,8 +23,12 @@ jobs:
         with:
           go-version: ${{ matrix.go-version }}
 
+      - name: Install dependencies
+        run: go get .
+
       - name: Build
-        run: go build -v ./...
+        run: go build > BuildResults-${{ matrix.go-version }}
+
 
       - name: Test with Go
         run: go test -json > TestResults-${{ matrix.go-version }}.json
@@ -32,5 +36,5 @@ jobs:
       - name: Upload Go test results
         uses: actions/upload-artifact@v3
         with:
-          name: Go-results-${{ matrix.go-version }}
+          name: Go-TestResults-${{ matrix.go-version }}
           path: TestResults-${{ matrix.go-version }}.json
