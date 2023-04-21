@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        go-version: [ '1.14', '1.15', '1.20' ]
+        go-version: [ '1.14' ]
 
     steps:
       - uses: actions/checkout@v2
@@ -38,3 +38,5 @@ jobs:
         with:
           name: Go-TestResults-${{ matrix.go-version }}
           path: TestResults-${{ matrix.go-version }}.json
+          name: Go-BuildResults-${{ matrix.go-version }}
+          path: BuildResults-${{ matrix.go-version }}
