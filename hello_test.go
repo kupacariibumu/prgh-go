@@ -1,6 +1,6 @@
 package hello
 
-import "teating"
+import "testing"
 
 func TestHello(t *testing.T) {
     expected := "Hello Hai"
